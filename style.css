@@ -1,67 +1,62 @@
-*{
-    margin:0;
-    padding:0;
-    text-align: center;
-}
-h1{
-    border:5px solid black;
-    height:5rem;
-    background-color: #081b31;
-    color:pink;
-    line-height: 5rem;
-}
-.choice
-{
-    height:165px;
-    width:165px;
-    border-radius:50%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-.choice:hover{
-    cursor:pointer;
-    background-color:#081b31;
-}
-img{
-    height:150px;
-    width:150px;
-    border-radius:50%;
-    object-fit:cover;
-}
-.choices
-{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin-top:5rem;
-    gap:3rem;
-}
-.score-board
-{
+body {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:3rem;
-    margin-top:5rem;
-    font-size:2rem;
+    height: 100vh;
+    /* Beautiful gradient background */
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    perspective: 1000px; /* important for 3D */
 }
-#user-score,#comp-score
-{
-    font-size:4rem;
-}
-.msg-container
-{
-    
-    margin-top:4rem;
-}
-#msg
-{
-    background-color: black;
-    color:white;
-    display:inline;
-    font-size:2rem;
-     border-radius:1rem;
-     padding:1rem;
 
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.slider {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotate 15s infinite linear;
+}
+
+.slide {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Place each image at different angles */
+.slide:nth-child(1) {
+    transform: rotateY(0deg) translateZ(400px);
+}
+.slide:nth-child(2) {
+    transform: rotateY(90deg) translateZ(400px);
+}
+.slide:nth-child(3) {
+    transform: rotateY(180deg) translateZ(400px);
+}
+.slide:nth-child(4) {
+    transform: rotateY(270deg) translateZ(400px);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }
